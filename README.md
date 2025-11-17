@@ -1,5 +1,5 @@
 Projeto de um sistema simples de Mercado, ainda no começo, com listagem e gerenciamento de produtos utilizando HTML, CSS, JavaScript, Node.js e SQLite.
-O objetivo é criar um pequeno e-commerce funcional com páginas de produtos, carrinho, login e painel administrativo.
+O objetivo é criar um pequeno e-commerce funcional com páginas de produtos, carrinho, login e painel administrativo. (Carrinho e Login em andamento).
 
 Tecnologias utilizadas
 
