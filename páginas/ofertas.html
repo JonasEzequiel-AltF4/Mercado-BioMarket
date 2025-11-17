@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BioMart - Ofertas Imperdíveis</title>
+    <link rel="stylesheet" href="/styles/styles.css"> <link rel="stylesheet" href="/styles/ofertas.css"> </head>
+<body>
+
+    <header class="main-header">
+        <div class="container header-content">
+         <h1 class="logo"><a href="index.html">BioMart</a></h1>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html#Paginainicial"> Pagina Inicial </a></li>
+                    <li><a href="ofertas.html#Ofertas"> Ofertas </a></li>
+                    <li><a href="contatos.html#contato"> Contato </a></li>
+                    <li><a href="cadastrarprodutos.html">Cadastrar Produtos</a></li>
+                </ul>
+            </nav>
+            <div class="user-actions">
+                
+                <button class="icon-btn" id="cart-btn">🛒 Carrinho (0)</button>
+                <button class="icon-btn" id="user-btn">👤 Entrar</button>
+            </div>
+        </div>
+    </header>
+
+    <section class="page-hero container">
+        <h1>🔥 Ofertas da Semana</h1>
+        <p>Aproveite os melhores preços em produtos selecionados por tempo limitado!</p>
+    </section>
+
+    <main class="offers-main-content container">
+        
+        <aside class="filter-sidebar">
+            <h3>🔍 Filtrar Ofertas</h3>
+            
+            <div class="filter-group">
+                <h4>Categoria</h4>
+                <label><input type="checkbox" value="hortifruti"> Hortifrúti</label>
+                <label><input type="checkbox" value="carnes"> Carnes</label>
+                <label><input type="checkbox" value="laticinios"> Laticínios</label>
+                <label><input type="checkbox" value="limpeza"> Limpeza</label>
+                <label><input type="checkbox" value="bebidas"> Bebidas</label>
+            </div>
+
+            <div class="filter-group">
+                <h4>Preço Máximo</h4>
+                <input type="range" min="1" max="2000.00" value="2000" class="slider" id="price-range">
+                <p>Até: <span id="price-value">R$ 2000,00</span></p>
+            </div>
+
+            <button class="btn primary-btn full-width">Aplicar Filtros</button>
+        </aside>
+
+        <section class="offer-grid-section">
+            <div class="offer-grid" id="offer-list">
+                <p>Carregando ofertas...</p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; 2025 BioMart. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="/scripts/ofertas.js"></script> 
+    <script src="/scripts/auth.js"></script> </body>
+</html>

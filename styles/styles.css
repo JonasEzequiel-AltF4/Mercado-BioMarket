@@ -1,0 +1,301 @@
+/* Importação de Fonte Moderna (Ex: Google Fonts - Poppins) */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+:root {
+    --primary-color: #4CAF50; /* Verde Supermercado */
+    --secondary-color: #FF9800; /* Laranja de Destaque */
+    --background-color: #d1d6a4;
+    --text-color: #ffffff;
+    --card-bg: #003622;
+    --shadow-light: 0 4px 10px #000000;
+}
+.logo a {
+    color: inherit;
+    text-decoration: none;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-color);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* === Cabeçalho e Navegação === */
+.main-header {
+    background-color: var(--card-bg);
+    box-shadow: var(--shadow-light);
+    position: sticky; /* Fixo ao rolar */
+    top: 0;
+    z-index: 1000;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+}
+
+.logo {
+    color: var(--primary-color);
+    font-weight: 700;
+    font-size: 1.8em;
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: var(--text-color);
+    padding: 10px 15px;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.main-nav a:hover {
+    color: var(--primary-color);
+}
+
+.user-actions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+input[type="search"] {
+    padding: 8px 15px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+input[type="search"]:focus {
+    border-color: var(--primary-color);
+}
+
+.icon-btn {
+    background: none;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 1em;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.icon-btn:hover {
+    background-color: #eee;
+}
+
+/* === Seção de Destaque */
+.hero-section {
+    position: relative;
+    background: linear-gradient(135deg, var(--primary-color), #66BB6A);
+    color: white;
+    padding: 80px 0;
+    text-align: center;
+    margin-bottom: 30px;
+    overflow: hidden; /* impede que a imagem vaze da seção */
+}
+
+.hero-section::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;        /* cobre toda largura da seção */
+    height: 100%;       /* cobre toda altura da seção */
+    background: url('https://wallpapers.com/images/hd/fruits-and-vegetables-1920-x-1200-background-9k7zabh5ntag89aa.jpg') no-repeat bottom right;
+    background-size: cover; /* cobre todo espaço mantendo proporção */
+    opacity: 0.5;      /* semi-transparente */
+    pointer-events: none; /* não atrapalha clique no conteúdo */
+    z-index: 0;        /* atrás do conteúdo */
+    transform: translateY(0);
+    transition: transform 0.5s ease-out;
+}
+
+.hero-section::before {
+    transform: scale(1); /* tamanho inicial */
+    transition: transform 0.5s ease-out; /* animação suave */
+}
+
+.hero-section:hover::before {
+    transform: scale(1.05); /* aumenta 5% ao passar o mouse */
+}
+
+.hero-section .container {
+    position: relative; /* garante que o conteúdo fique acima da imagem */
+    z-index: 1;
+}
+
+/* Título com sombra mais impactante */
+.hero-section h2 {
+    font-size: 3em;
+    margin-bottom: 10px;
+    text-shadow: 
+        2px 2px 8px rgba(0,0,0,0.6),  /* sombra principal */
+        0 0 10px rgba(255,255,255,0.2); /* leve brilho */
+}
+
+/* Parágrafo com sombra sutil */
+.hero-section p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 6px rgba(0,0,0,0.4);
+}
+
+/* Botão principal com efeito de brilho ao passar mouse */
+.hero-section .btn.primary-btn {
+    transition: all 0.3s ease;
+}
+
+.hero-section .btn.primary-btn:hover {
+    box-shadow: 0 0 15px rgba(255,255,255,0.6);
+    transform: translateY(-3px);
+}
+
+
+
+
+/* Botões */
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.1s;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.primary-btn {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.primary-btn:hover {
+    background-color: #E68A00;
+    transform: translateY(-2px);
+}
+
+/* === Grid de Produtos e Card === */
+.products-container h3 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2em;
+    color: var(--primary-color);
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 250px)); /* largura fixa mínima e máxima */
+    gap: 25px;
+    padding-bottom: 50px;
+    justify-content: center;   /* centraliza o grid quando há poucos itens */
+}
+
+
+.product-card {
+    background-color: var(--card-bg);
+    border-radius: 10px;
+    box-shadow: var(--shadow-light);
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.product-card:hover {
+    transform: translateY(-5px); /* Efeito de elevação */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.product-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 1px solid #eee;
+}
+
+.product-info {
+    padding: 15px;
+}
+
+.category {
+    display: inline-block;
+    background-color: #E8F5E9; /* Fundo suave */
+    color: var(--primary-color);
+    font-size: 0.8em;
+    padding: 3px 8px;
+    border-radius: 3px;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.product-info h4 {
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.price {
+    font-size: 1.4em;
+    color: var(--secondary-color);
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.add-to-cart-btn {
+    width: 100%;
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.add-to-cart-btn:hover {
+    background-color: #43A047;
+}
+
+/* === Rodapé === */
+.main-footer {
+    background-color: #222;
+    color: #ccc;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px;
+}
+
+/* === Responsividade Básica === */
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+
+    .main-nav ul {
+        justify-content: center;
+    }
+
+    .user-actions {
+        width: 100%;
+        justify-content: center;
+    }
+
+    input[type="search"] {
+        flex-grow: 1; /* Ocupa mais espaço na busca */
+    }
+}

@@ -1,0 +1,166 @@
+/* Reutiliza as variáveis do styles.css */
+:root {
+    --primary-color: #4CAF50;
+    --secondary-color: #FF9800;
+    --background-color: #d1d6a4;
+    --text-color: #ffffff;
+    --card-bg: #003622;
+    --shadow-deep: 0 6px 15px rgb(0, 0, 0);
+}
+
+/* === Título da Página de Contatos === */
+.page-hero {
+    padding: 40px 20px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.page-hero h1 {
+    color: var(--primary-color);
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+/* === Layout Principal (Duas Colunas) === */
+.contact-main-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* 2/3 para o formulário, 1/3 para info */
+    gap: 40px;
+    padding-bottom: 50px;
+}
+
+/* === Formulário === */
+.contact-form-section {
+    background-color: var(--card-bg);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: var(--shadow-deep);
+}
+
+.contact-form-section h2 {
+    color: var(--primary-color);
+    margin-bottom: 25px;
+    font-size: 1.8em;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.styled-form input,
+.styled-form textarea,
+.styled-form select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1em;
+    transition: border-color 0.3s;
+}
+
+.styled-form textarea {
+    resize: vertical;
+}
+
+.styled-form input:focus,
+.styled-form textarea:focus,
+.styled-form select:focus {
+    border-color: var(--primary-color);
+    outline: none;
+}
+
+/* === Informações de Contato === */
+.contact-info-section {
+    padding: 20px;
+    background-color: var(--background-color);
+    border-radius: 10px;
+    height: fit-content; /* Ajusta a altura ao conteúdo */
+}
+
+/* Título Nossos Canais */
+.contact-info-section h2#nossos-canais {
+    color:#4CAF50;
+    text-align: center; /* centraliza o texto dentro do bloco */
+    font-size: 2em;
+    background-color: var(--card-bg);
+    display: inline-block; /* mantém o bloco compacto */
+    padding: 10px 25px;
+    border-radius: 10px;
+    box-shadow: var(--shadow-deep);
+    margin-bottom: 30px;
+
+    /* Centraliza o bloco horizontalmente */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+
+/* === Card para cada bloco de contato === */
+.info-block {
+    background-color: var(--card-bg); /* Fundo do card */
+    color: var(--text-color);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: var(--shadow-deep);
+    margin-bottom: 20px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.info-block:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* Mantendo o h4 destacado dentro do card */
+.info-block h4 {
+    background-color: var(--primary-color); /* Fundo do quadrado do nome */
+    padding: 5px 12px;
+    border-radius: 5px;
+    display: inline-block;
+    font-size: 1em;
+    margin-bottom: 10px;
+}
+
+/* Links dentro do card */
+.info-block p a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+/* Placeholder do mapa */
+.map-placeholder {
+    width: 100%;
+    height: 200px;
+    background-color: #ddd;
+    border: 1px solid #ccc;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #666;
+    border-radius: 6px;
+}
+
+/* === Responsividade === */
+@media (max-width: 800px) {
+    .contact-main-content {
+        /* Empilha as colunas em telas menores */
+        grid-template-columns: 1fr; 
+    }
+    
+    .contact-info-section {
+        order: -1; /* Move as informações para cima do formulário em mobile */
+    }
+}

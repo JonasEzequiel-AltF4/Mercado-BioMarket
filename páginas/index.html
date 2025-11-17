@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BioMart - Pagina Inicial</title>
+    <link rel="stylesheet" href="/styles/styles.css">
+</head>
+<body>
+
+<header class="main-header">
+    <div class="container header-content">
+        <h1 class="logo"><a href="index.html">BioMart</a></h1>
+
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html#Paginainicial"> Pagina Inicial </a></li>
+                <li><a href="ofertas.html#Ofertas"> Ofertas </a></li>
+                <li><a href="contatos.html#contato"> Contato </a></li>
+                <li><a href="cadastrarprodutos.html">Cadastrar Produtos</a></li>
+            </ul>
+        </nav>
+        <div class="user-actions">
+            
+            <button class="icon-btn" id="cart-btn">🛒 Carrinho (0)</button>
+            <a href="cadastrologin.html">
+                <button class="icon-btn" id="user-btn"> 👤 Entrar </button>
+            </a>
+        </div>
+    </div>
+</header>
+
+<section class="hero-section">
+    <div class="container">
+        <h2> Ofertas Imbatíveis da Semana!</h2>
+        <p>A melhor promoção de carnes, verduras e muito mais.</p>
+        <a href="ofertas.html#ofertas" class="btn primary-btn">Ver Ofertas</a>
+    </div>
+</section>
+
+<main class="products-container container" id="produtos">
+    <h3>Nossos Produtos</h3>
+    <div class="product-grid" id="product-list">
+        <!-- Produtos carregados via JS -->
+    </div>
+</main>
+
+<footer class="main-footer">
+    <div class="container">
+        <p>&copy; 2025 BioMart. Todos os direitos reservados.</p>
+    </div>
+</footer>
+
+<script>
+const productList = document.getElementById("product-list");
+const searchInput = document.getElementById("search-input");
+
+async function carregarProdutos(busca = "") {
+    try {
+        const url = busca ? `http://localhost:3000/produtos?busca=${encodeURIComponent(busca)}` : 'http://localhost:3000/produtos';
+        const res = await fetch(url);
+        const produtos = await res.json();
+
+        productList.innerHTML = "";
+
+        if (!produtos || produtos.length === 0) {
+            productList.innerHTML = "<p>Nenhum produto encontrado.</p>";
+            return;
+        }
+
+        produtos.forEach(p => {
+            const preco = !isNaN(p.price) ? Number(p.price).toFixed(2).replace('.', ',') : "0,00";
+            const img = p.image || "placeholder-oferta.jpg";
+
+            const card = document.createElement("div");
+            card.className = "product-card";
+            card.innerHTML = `
+                <img src="${img}" alt="${p.name || 'Produto'}">
+                <div class="product-info">
+                    <span class="category">${p.category || ''}</span>
+                    <h4>${p.name || 'Produto'}</h4>
+                    <p class="price">R$ ${preco}</p>
+                    <button class="btn add-to-cart-btn" data-product-id="${p.id}">Adicionar</button>
+                </div>
+            `;
+            productList.appendChild(card);
+        });
+    } catch (err) {
+        console.error("Erro ao carregar produtos:", err);
+        productList.innerHTML = "<p>Erro ao carregar produtos.</p>";
+    }
+}
+
+// Carrega produtos ao abrir a página
+carregarProdutos();
+
+// Busca em tempo real
+searchInput.addEventListener("input", (e) => {
+    carregarProdutos(e.target.value);
+});
+</script>
+
+<script src="/scripts/auth.js"></script>
+</body>
+</html>

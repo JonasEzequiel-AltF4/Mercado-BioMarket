@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BioMart - Cadastro de Produtos</title>
+    <link rel="stylesheet" href="/styles/styles.css">
+    <link rel="stylesheet" href="/styles/cadastrarprodutos.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container header-content">
+            <h1 class="logo">BioMart (ADMIN)</h1>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="cadastrarprodutos.html">Cadastrar Produtos</a></li>
+                </ul>
+            </nav>
+            <div class="user-actions">
+             
+            </div>
+        </div>
+    </header>
+
+    <section class="page-hero container">
+        <h1>➕ Cadastro de Novo Produto</h1>
+        <p>Insira os detalhes completos do item que será adicionado ao catálogo da loja.</p>
+    </section>
+
+    <main class="product-register-main-content container">
+        
+        <div id="feedback-message" style="margin-bottom: 15px; font-weight: bold;"></div>
+        
+        <form id="product-register-form" class="register-form-card">
+            
+            <fieldset>
+                <legend>Informações Básicas</legend>
+                
+                <div class="input-group">
+                    <label for="product-name">Nome do Produto:</label>
+                    <input type="text" id="product-name" name="name" required placeholder="Ex: Arroz Branco Tio João 5kg">
+                </div>
+                
+                <div class="input-group">
+                    <label for="product-description">Descrição Detalhada:</label>
+                    <textarea id="product-description" name="description" rows="3" required placeholder="Detalhes, composição e informações nutricionais/uso..."></textarea>
+                </div>
+
+                <div class="input-group">
+                    <label for="category">Categoria:</label>
+                    <select id="category" name="category" required>
+                        <option value="" disabled selected>Selecione a Categoria</option>
+                        <option value="mercearia">Mercearia</option>
+                        <option value="hortifruti">Hortifrúti</option>
+                        <option value="carnes">Carnes</option>
+                        <option value="laticinios">Laticínios</option>
+                        <option value="limpeza">Limpeza</option>
+                        <option value="bebidas">Bebidas</option>
+                    </select>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Preços e Estoque</legend>
+
+                <div class="form-row">
+                    <div class="input-group half-width">
+                        <label for="price">Preço Unitário (R$):</label>
+                        <input type="number" id="price" name="price" step="0.01" min="0.01" required placeholder="0.00">
+                    </div>
+                    <div class="input-group half-width">
+                        <label for="stock">Quantidade em Estoque:</label>
+                        <input type="number" id="stock" name="stock" min="0" required placeholder="0">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="input-group half-width">
+                        <label for="unit-measure">Unidade de Medida:</label>
+                        <select id="unit-measure" name="unit_measure" required>
+                            <option value="unidade">Unidade</option>
+                            <option value="kg">Kg</option>
+                            <option value="litro">Litro</option>
+                            <option value="pacote">Pacote</option>
+                        </select>
+                    </div>
+                    <div class="input-group half-width">
+                        <label for="sku">Código SKU:</label>
+                        <input type="text" id="sku" name="sku" placeholder="SKU-0001">
+                    </div>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Mídia e Destaques</legend>
+                
+                <div class="input-group">
+                    <label for="image-upload">Imagem do Produto (URL):</label>
+                    <input type="text" id="image-upload" name="img" required placeholder="Cole a URL da imagem aqui">
+
+                </div>
+
+                
+            </fieldset>
+
+            <button type="submit" class="btn primary-btn submit-btn">💾 Salvar Produto no Catálogo</button>
+        </form>
+        
+    </main>
+
+    <!-- REMOVIDO: o script interno que duplicava o envio -->
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; 2025 BioMart. Área Administrativa.</p>
+        </div>
+    </footer>
+
+    <!-- SOMENTE isto fica no final -->
+    <script src="/scripts/cadastrarprodutos.js"></script>
+    <script src="/scripts/auth.js"></script>
+
+</body>
+</html>

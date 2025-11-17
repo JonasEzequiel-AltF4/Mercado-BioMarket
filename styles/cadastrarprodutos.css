@@ -1,0 +1,129 @@
+/* Reutiliza as variáveis do styles.css */
+:root {
+    --primary-color: #03A9F4; /* Azul Admin/Gerenciamento */
+    --secondary-color: #FFC107; /* Amarelo de Alerta/Destaque */
+    --background-color: #eceff1; /* Fundo mais suave para área admin */
+    --text-color: #333;
+    --card-bg: #fff;
+    --shadow-light: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* === Título da Página de Cadastro === */
+.page-hero {
+    padding: 40px 20px;
+    text-align: center;
+    border-bottom: 2px solid var(--primary-color);
+    margin-bottom: 30px;
+    background-color: var(--card-bg);
+}
+
+.page-hero h1 {
+    color: var(--primary-color);
+    font-size: 2.2em;
+    margin-bottom: 10px;
+}
+
+/* === Layout do Formulário === */
+.product-register-main-content {
+    max-width: 800px; /* Limita a largura do formulário */
+    margin: 30px auto;
+    padding: 0 20px 50px;
+}
+
+.register-form-card {
+    background-color: var(--card-bg);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilização dos Fieldsets (Grupos de Informação) */
+fieldset {
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 20px;
+    margin-bottom: 25px;
+}
+
+legend {
+    color: var(--primary-color);
+    font-size: 1.3em;
+    font-weight: 600;
+    padding: 0 10px;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.register-form-card input:not([type="checkbox"]),
+.register-form-card textarea,
+.register-form-card select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+    transition: border-color 0.3s;
+}
+
+.register-form-card input:focus,
+.register-form-card textarea:focus,
+.register-form-card select:focus {
+    border-color: var(--primary-color);
+    outline: none;
+}
+
+/* Campos em linha (Preço e Estoque) */
+.form-row {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 15px;
+}
+
+.half-width {
+    flex: 1; /* Divide o espaço igualmente */
+}
+
+/* Checkboxes */
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.checkbox-group input[type="checkbox"] {
+    width: auto;
+}
+
+.checkbox-group label {
+    margin: 0;
+    font-weight: 400;
+}
+
+/* Botão de Submissão */
+.submit-btn {
+    width: 100%;
+    margin-top: 20px;
+    background-color: var(--primary-color); /* Usa a cor admin para o botão */
+    font-size: 1.1em;
+    padding: 12px;
+}
+
+.submit-btn:hover {
+    background-color: #0288D1;
+}
+
+/* === Responsividade === */
+@media (max-width: 600px) {
+    .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+}

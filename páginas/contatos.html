@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BioMart - Fale Conosco</title>
+    <link rel="stylesheet" href="/styles/styles.css">
+    <link rel="stylesheet" href="/styles/contatos.css">
+
+    <!-- CSS do Leaflet -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container header-content">
+            <h1 class="logo"><a href="index.html">BioMart</a></h1>
+
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html#Paginainicial">Pagina Inicial</a></li>
+                    <li><a href="ofertas.html#Ofertas">Ofertas</a></li>
+                    <li><a href="contatos.html#contato">Contato</a></li>
+                    <li><a href="cadastrarprodutos.html">Cadastrar Produtos</a></li>
+                </ul>
+            </nav>
+
+            <div class="user-actions">
+                
+                <button class="icon-btn" id="cart-btn">🛒 Carrinho (0)</button>
+                <a href="cadastrologin.html">
+                <button class="icon-btn" id="user-btn"> 👤 Entrar </button>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section class="page-hero container">
+        <h1>Fale Conosco 👋</h1>
+        <p>Preencha o formulário abaixo ou utilize nossos canais de atendimento direto.</p>
+    </section>
+
+    <main class="contact-main-content container">
+        <section class="contact-form-section">
+            <h2>Envie uma Mensagem</h2>
+            <form id="contact-form" class="styled-form">
+                <div class="input-group">
+                    <label for="name">Nome Completo:</label>
+                    <input type="text" id="name" name="name" required placeholder="Seu nome">
+                </div>
+
+                <div class="input-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required placeholder="seu@email.com">
+                </div>
+
+                <div class="input-group">
+                    <label for="subject">Assunto:</label>
+                    <select id="subject" name="subject" required>
+                        <option value="" disabled selected>Selecione um assunto</option>
+                        <option value="duvida">Dúvidas sobre Pedidos</option>
+                        <option value="sugestao">Sugestão/Elogio</option>
+                        <option value="trabalhe">Trabalhe Conosco</option>
+                        <option value="outros">Outros Assuntos</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="message">Mensagem:</label>
+                    <textarea id="message" name="message" rows="5" required placeholder="Digite sua mensagem detalhada..."></textarea>
+                </div>
+
+                <button type="submit" class="btn primary-btn full-width">Enviar Mensagem</button>
+            </form>
+        </section>
+
+        <aside class="contact-info-section">
+            <h2 id="nossos-canais">CANAIS DE ATENDIMENTO</h2>
+
+
+            <div class="info-block">
+                <h4>Atendimento ao Cliente</h4>
+                <p>📞 Telefone: (83) 9XXXX-XXXX</p>
+                <p>📧 Email: <a href="mailto:contato@biomart.com">contato@biomart.com</a></p>
+                <p>⏰ Seg. a Sex. das 8h às 18h</p>
+            </div>
+
+            <div class="info-block">
+                <h4>Endereço Principal</h4>
+                <p>📍 R. Empresário João Rodrigues Alves, 50   Jardim Sao Paulo / PB, 58051-000</p>
+                <p>João Pessoa - PB</p>
+            </div>
+
+            <!-- Mapa com Leaflet -->
+            <div id="map" style="width:100%; height:400px;"></div>
+        </aside>
+    </main>
+
+    <!-- JS do Leaflet -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+        // Inicializa o mapa
+        const map = L.map('map').setView([-7.146882, -34.84936], 15);
+
+        // Adiciona os tiles da API do OpenStreetMap
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Adiciona marcador
+        L.marker([-7.146882, -34.84936]).addTo(map)
+            .bindPopup('BioMart - Carrefour')
+            .openPopup();
+    </script>
+
+</body>
+</html>
